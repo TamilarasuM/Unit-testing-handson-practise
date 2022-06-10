@@ -1,6 +1,7 @@
 import Sinon from 'sinon'
-import { html, fixture, expect } from '@open-wc/testing';
+import { html, fixture, expect, fixtureSync, elementUpdated } from '@open-wc/testing';
 import '../src/dashboard/Dashboard.js';
+import { DashboardOverview } from '../src/dashboard/Dashboard-overview.js';
 
 describe('dashboard menu', () => {
     it('checks dashboard menu', async () => {
@@ -10,9 +11,27 @@ describe('dashboard menu', () => {
         expect(ourd.calledOnce).to.be.true;
     });
 
-
-    it('Checks Dashboard accessible ', async () => {
+    it('Checks Dashboard overview  accessible ', async () => {
         const el = await fixture(html` <dashboard-overview></dashboard-overview> `);
         await expect(el).to.be.accessible();
     });
+
+    it('Checks Dashboard overview - container class name', async () => {
+        const el = await fixture(html` <dashboard-overview></dashboard-overview> `);
+        expect(el.shadowRoot.querySelector('div')).to.have.class('container');
+    });
+
+    it('Checks Dashboard overview child component dashboard menu', async () => {
+        const el = await fixture(html` <dashboard-overview></dashboard-overview> `);
+        expect(el.shadowRoot.querySelector('dashboard-menu')).to.be.accessible();
+    });
+
+    it('Checks Dashboard Menu building menthod', async () => {
+        let dashBrd = new DashboardOverview();
+        dashBrd.data = [{ title: 'Home Loan', image: 'images/Home-Loans.jpg' }]
+        const el = await fixture(html`${dashBrd._renderdashboardcard()}`);
+        expect(el).dom.to.equal('<dashboard-menu imageURL="../src/images/Home-Loans.jpg" title="Home Loan"></dashboard-menu>')
+    });
+
+
 });
