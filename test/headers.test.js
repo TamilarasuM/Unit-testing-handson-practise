@@ -6,7 +6,7 @@ import '../src/header/Header.js';
 
 
 
-describe('loan-header component check', () => {
+xdescribe('loan-header component check', () => {
     it('checks header title', async () => {
         const el = await fixture(html` <loan-header></loan-header> `);
         const headerTxt = await el.shadowRoot.querySelector('p').innerText;
