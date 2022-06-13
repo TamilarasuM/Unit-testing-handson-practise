@@ -127,7 +127,7 @@ export class BasicDetails extends LocalizeMixin(LitElement) {
     return html` <div class="form-basic">
       <h2>${localize.msg('change-language:loandetails')}</h2>
       <lion-form>
-        <form class="basic-web-form" @submit=${this._captureDetails}>
+        <form class="basic-web-form" @submit=${() => this._captureDetails()}>
           <!-- <div class="basic-form"> -->
           <lion-input
             label="${localize.msg('change-language:Name')}"
@@ -139,11 +139,11 @@ export class BasicDetails extends LocalizeMixin(LitElement) {
             style=" color:black"
             .value="${this.type}"
             .validators="${[
-              new Required(
-                {},
-                { getMessage: () => 'Type is a required field' }
-              ),
-            ]}"
+        new Required(
+          {},
+          { getMessage: () => 'Type is a required field' }
+        ),
+      ]}"
           ></lion-input>
 
           <lion-input-amount
@@ -152,28 +152,28 @@ export class BasicDetails extends LocalizeMixin(LitElement) {
             id="amount"
             class="amount"
             .validators="${[
-              new MinNumber(
-                { min: 10000 },
-                {
-                  getMessage: () =>
-                    'Should enter an amount greater than ten thousand ',
-                }
-              ),
-              new MaxNumber(
-                { max: 10000000 },
-                {
-                  getMessage: () =>
-                    'Should enter an amount less than ten crore ',
-                }
-              ),
-              new Required(
-                {},
-                { getMessage: () => 'Amount is a required field' }
-              ),
-            ]}"
+        new MinNumber(
+          { min: 10000 },
+          {
+            getMessage: () =>
+              'Should enter an amount greater than ten thousand ',
+          }
+        ),
+        new MaxNumber(
+          { max: 10000000 },
+          {
+            getMessage: () =>
+              'Should enter an amount less than ten crore ',
+          }
+        ),
+        new Required(
+          {},
+          { getMessage: () => 'Amount is a required field' }
+        ),
+      ]}"
             .modelValue="${this.amount}"
             label="${localize.msg('change-language:Amount')}"
-            @keyup=${this._numToWord}
+            @keyup=${() => this._numToWord()}
           >
           </lion-input-amount>
 
@@ -195,10 +195,10 @@ export class BasicDetails extends LocalizeMixin(LitElement) {
       </lion-form>
 
       <div class="btn-prev-nxt-parent">
-        <lion-button class="btn-previous btn" @click=${this._toDashboard}
+        <lion-button class="btn-previous btn" @click=${() => this._toDashboard()}
           >${localize.msg('change-language:btnPrev')}</lion-button
         >
-        <lion-button @click=${this._captureDetails} class="btn-next btn"
+        <lion-button @click=${() => this._captureDetails()} class="btn-next btn"
           >${localize.msg('change-language:btnNext')}</lion-button
         >
       </div>

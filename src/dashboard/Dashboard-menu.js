@@ -57,8 +57,8 @@ export class DashboardMenu extends LocalizeMixin(LitElement) {
   render() {
     return html`
       <div class="card">
-        <button @click=${this._setTypeInLS}>
-          <img src=${this.imageURL} alt="loan type" />
+        <button @click=${() => this._setTypeInLS()}>
+          <img src=${() => this.imageURL()} alt="loan type" />
           <div class="container">
             <h4><b>${this.title}</b></h4>
           </div>

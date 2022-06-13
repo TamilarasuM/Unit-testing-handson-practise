@@ -39,12 +39,11 @@ describe('Loan EMI details', () => {
 
   });
 
-  xit('spy the method next(_toCustomer)', async () => {
+  it('spy the method next(_toCustomer)', async () => {
     const el = await fixture(html`<loanemi-details></loanemi-details>`);
-    let btn = await el.shadowRoot.querySelector('lion-button');
+    let btn = await el.shadowRoot.querySelectorAll('lion-button')[1];
     const myspy = Sinon.spy(el, '_toCustomer');
-
-    btn[1].click();
+    btn.click();
     expect(myspy.calledOnce).to.be.true;
   });
 

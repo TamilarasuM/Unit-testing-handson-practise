@@ -4,10 +4,10 @@ import { stub } from 'sinon';
 import '../src/Customer/Customer-details.js';
 import Sinon from 'sinon';
 
-describe('customer details', () => {
+xdescribe('customer details', () => {
   // Write test cases inside this block
 
 
- 
+
 
 });

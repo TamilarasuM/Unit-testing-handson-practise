@@ -37,7 +37,7 @@ export class LoanError extends LocalizeMixin(LitElement) {
       <div>
         <h2>${localize.msg('change-language:oop')}!!</h2>
         <p>${localize.msg('change-language:errDesc')}</p>
-        <lion-button class="home-btn" @click=${this._toHome}
+        <lion-button class="home-btn" @click=${() => this._toHome()}
           >${localize.msg('change-language:home')}</lion-button
         >
       </div>

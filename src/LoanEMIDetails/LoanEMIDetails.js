@@ -91,10 +91,10 @@ export class LoanEMIDetails extends LocalizeMixin(LitElement) {
           </p>
         </div>
         <div class="btn-cont">
-          <lion-button class="cancel-btn btn" @click=${this._toBasicDetails}
+          <lion-button class="cancel-btn btn" @click=${() => this._toBasicDetails()}
             >${localize.msg('change-language:btnCancel')}</lion-button
           >
-          <lion-button @click=${this._toCustomer} class="continue-btn btn"
+          <lion-button @click=${() => this._toCustomer()} class="continue-btn btn"
             >${localize.msg('change-language:btnCont')}</lion-button
           >
         </div>

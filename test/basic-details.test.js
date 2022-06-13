@@ -20,24 +20,26 @@ describe('Basic details', () => {
     localStorage.setItem('type', 'Home')
     const el = await fixture(html`  <basic-details></basic-details>`);
     const headerText = await el.shadowRoot.querySelector("#type").textContent;
-    // const des = Sinon.spy(el, '_increment').returns(true);
-    //LoanApplication._increment();
     expect(headerText).to.equal("Loan details");
   });
 
-
-  xit('checks for spy function', async () => {
-    const el = await fixture(html`<basic-details></basic-details>`);
-    const amount = el.shadowRoot.querySelectorAll('.amount')[0].textContent;
-    console.log(el.shadowRoot.querySelectorAll('.amount')[0])
-    expect(amount).to.equal(10000);
-  });
-
-  it('checks for spy function', async () => {
+  it('checks for spy function -nxt ', async () => {
     const el = await fixture(html`<basic-details></basic-details>`);
     const myspy = Sinon.spy(el, '_captureDetails');
-    el.shadowRoot.querySelector("form").submit();
-    expect(myspy.calledOnce).to.be.false;
+    el.shadowRoot.querySelectorAll("lion-button")[1].click();
+    expect(myspy.calledOnce).to.be.true;
+  });
+
+  it('checks for spy function prev btn', async () => {
+    const el = await fixture(html`<basic-details></basic-details>`);
+    const myspy = Sinon.spy(el, '_toDashboard');
+    el.shadowRoot.querySelectorAll('.btn-previous')[0].click();
+    expect(myspy.calledOnce).to.be.true;
   });
 
 });
+
+
+
+
+

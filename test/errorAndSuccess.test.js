@@ -16,10 +16,7 @@ describe('Error screen ', () => {
   it("Passes spy on Validataion ", async () => {
     const el = await fixture(html`<loan-error></loan-error>`);
     const myFunctionStub = Sinon.spy(el, "_toHome");
-    // await el.updateComplete;
-    // el.shadowRoot.querySelector('button').click()
-    // console.log(el.shadowRoot.querySelector('button').in)
-    el._toHome();
+    el.shadowRoot.querySelector('button').click()
     expect(myFunctionStub.calledOnce).to.be.true;
   })
 
@@ -39,9 +36,7 @@ describe('Success screen', () => {
   it('checks for home method', async () => {
     const spyMethod = Sinon.spy(el, "_toHome");
     const button = el.shadowRoot.querySelectorAll('lion-button');
-    // await el.updateComplete;
     button[0].click();
-    el._toHome();
     expect(spyMethod.calledOnce).to.be.true;
   });
 });

@@ -33,11 +33,11 @@ describe('dashboard menu', () => {
         expect(el).dom.to.equal('<dashboard-menu imageURL="../src/images/Home-Loans.jpg" title="Home Loan"></dashboard-menu>')
     });
 
-    it('checks for spy', async () => {
+    it('checks for spy - menu click', async () => {
         const el = await fixture(html`<dashboard-menu></dashboard-menu>`);
         const button = el.shadowRoot.querySelector('button');
         const fun = Sinon.spy(el, "_setTypeInLS");
-        el._setTypeInLS()
+        button.click()
         expect(fun.calledOnce).to.be.true;
     });
 

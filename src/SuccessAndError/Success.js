@@ -37,7 +37,7 @@ export class LoanSuccess extends LocalizeMixin(LitElement) {
       <div>
         <h2>${localize.msg('change-language:congo')}!!!</h2>
         <p>${localize.msg('change-language:scsDesc')}</p>
-        <lion-button class="home-btn" @click=${this._toHome}
+        <lion-button class="home-btn" @click=${() => this._toHome()}
           >${localize.msg('change-language:home')}</lion-button
         >
       </div>
