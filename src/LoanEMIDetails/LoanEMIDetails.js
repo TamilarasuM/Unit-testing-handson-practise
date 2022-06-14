@@ -71,23 +71,23 @@ export class LoanEMIDetails extends LocalizeMixin(LitElement) {
           <h2>EMI Details</h2>
           <p>
             ${localize.msg('change-language:intRate')} :
-            <span>${this._data.interestRate} %</span>
+            <span>${this._data?.interestRate} %</span>
           </p>
           <p>
             ${localize.msg('change-language:mnthlyEmi')} :
-            <span>${this._data.monthlyEMI}</span>
+            <span>${this._data?.monthlyEMI}</span>
           </p>
           <p>
             ${localize.msg('change-language:pricipal')} :
-            <span>${this._data.principal}</span>
+            <span>${this._data?.principal}</span>
           </p>
           <p>
             ${localize.msg('change-language:interest')} :
-            <span>${this._data.interest}</span>
+            <span>${this._data?.interest}</span>
           </p>
           <p>
             ${localize.msg('change-language:TotalAmt')} :
-            <span>${this._data.totalAmount}</span>
+            <span>${this._data?.totalAmount}</span>
           </p>
         </div>
         <div class="btn-cont">

@@ -10,29 +10,24 @@ describe('dashboard menu', () => {
         el.firstUpdated();
         expect(ourd.calledOnce).to.be.true;
     });
-
     it('Checks Dashboard overview  accessible ', async () => {
         const el = await fixture(html` <dashboard-overview></dashboard-overview> `);
         await expect(el).to.be.accessible();
     });
-
     it('Checks Dashboard overview - container class name', async () => {
         const el = await fixture(html` <dashboard-overview></dashboard-overview> `);
         expect(el.shadowRoot.querySelector('div')).to.have.class('container');
     });
-
     it('Checks Dashboard overview child component dashboard menu', async () => {
         const el = await fixture(html` <dashboard-overview></dashboard-overview> `);
         expect(el.shadowRoot.querySelector('dashboard-menu')).to.be.accessible();
     });
-
     it('Checks Dashboard Menu building menthod', async () => {
         let dashBrd = new DashboardOverview();
         dashBrd.data = [{ title: 'Home Loan', image: 'images/Home-Loans.jpg' }]
         const el = await fixture(html`${dashBrd._renderdashboardcard()}`);
         expect(el).dom.to.equal('<dashboard-menu imageURL="../src/images/Home-Loans.jpg" title="Home Loan"></dashboard-menu>')
     });
-
     it('checks for spy - menu click', async () => {
         const el = await fixture(html`<dashboard-menu></dashboard-menu>`);
         const button = el.shadowRoot.querySelector('button');
@@ -40,6 +35,4 @@ describe('dashboard menu', () => {
         button.click()
         expect(fun.calledOnce).to.be.true;
     });
-
-
 });
