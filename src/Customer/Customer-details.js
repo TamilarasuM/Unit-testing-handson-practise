@@ -141,13 +141,13 @@ export class CustomerDetails extends LocalizeMixin(LitElement) {
               id="first_name"
               label="${localize.msg('change-language:firstname')}"
               .validators=${[
-                new Pattern(/^[a-zA-Z\s]*$/),
-                new MinLength(3),
-                new Required(
-                  {},
-                  { getMessage: () => 'First name is a required field' }
-                ),
-              ]}
+        new Pattern(/^[a-zA-Z\s]*$/),
+        new MinLength(3),
+        new Required(
+          {},
+          { getMessage: () => 'First name is a required field' }
+        ),
+      ]}
             >
             </lion-input>
             <lion-input
@@ -155,13 +155,13 @@ export class CustomerDetails extends LocalizeMixin(LitElement) {
               id="last_name"
               label="${localize.msg('change-language:lastname')}"
               .validators=${[
-                new Pattern(/^[a-zA-Z\s]*$/),
-                new MinLength(3),
-                new Required(
-                  {},
-                  { getMessage: () => 'Last name is a required field' }
-                ),
-              ]}
+        new Pattern(/^[a-zA-Z\s]*$/),
+        new MinLength(3),
+        new Required(
+          {},
+          { getMessage: () => 'Last name is a required field' }
+        ),
+      ]}
             >
             </lion-input>
             <lion-input-datepicker
@@ -170,25 +170,25 @@ export class CustomerDetails extends LocalizeMixin(LitElement) {
               label="${localize.msg('change-language:dateofbirth')}"
               .modelValue=${new Date(maxdate)}
               .validators=${[
-                new MinMaxDate({
-                  min: new Date(mindate),
-                  max: new Date(maxdate),
-                }),
-              ]}
+        new MinMaxDate({
+          min: new Date(mindate),
+          max: new Date(maxdate),
+        }),
+      ]}
             >
             </lion-input-datepicker>
             <lion-input-email
               name="email"
               id="email"
               .validators=${[
-                new Pattern(
-                  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-                ),
-                new Required(
-                  {},
-                  { getMessage: () => 'E-mail is a required field' }
-                ),
-              ]}
+        new Pattern(
+          /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+        ),
+        new Required(
+          {},
+          { getMessage: () => 'E-mail is a required field' }
+        ),
+      ]}
               label="${localize.msg('change-language:email')}"
             >
             </lion-input-email>
@@ -197,14 +197,14 @@ export class CustomerDetails extends LocalizeMixin(LitElement) {
               id="mobile_number"
               label="${localize.msg('change-language:mobilenumber')}"
               .validators=${[
-                new Pattern(/(6|7|8|9)\d{9}/),
-                new MinLength(10),
-                new MaxLength(10),
-                new Required(
-                  {},
-                  { getMessage: () => 'Mobile Number is a required field' }
-                ),
-              ]}
+        new Pattern(/(6|7|8|9)\d{9}/),
+        new MinLength(10),
+        new MaxLength(10),
+        new Required(
+          {},
+          { getMessage: () => 'Mobile Number is a required field' }
+        ),
+      ]}
             >
             </lion-input>
             <lion-input-amount
@@ -212,11 +212,11 @@ export class CustomerDetails extends LocalizeMixin(LitElement) {
               id="monthly_salary"
               label="${localize.msg('change-language:monthlysalary')}"
               .validators=${[
-                new Required(
-                  {},
-                  { getMessage: () => 'Monthly salary is a required field' }
-                ),
-              ]}
+        new Required(
+          {},
+          { getMessage: () => 'Monthly salary is a required field' }
+        ),
+      ]}
             >
             </lion-input-amount>
             <lion-input-amount
@@ -224,11 +224,11 @@ export class CustomerDetails extends LocalizeMixin(LitElement) {
               id="EMIs_amount"
               label="${localize.msg('change-language:previousemi')}"
               .validators=${[
-                new Required(
-                  {},
-                  { getMessage: () => 'Previous EMI is a required field' }
-                ),
-              ]}
+        new Required(
+          {},
+          { getMessage: () => 'Previous EMI is a required field' }
+        ),
+      ]}
             >
             </lion-input-amount>
 
@@ -236,14 +236,14 @@ export class CustomerDetails extends LocalizeMixin(LitElement) {
               id="terms"
               name="terms"
               .validators=${[
-                new Required(
-                  {},
-                  {
-                    getMessage: () =>
-                      'Please select terms and conditions to continue',
-                  }
-                ),
-              ]}
+        new Required(
+          {},
+          {
+            getMessage: () =>
+              'Please select terms and conditions to continue',
+          }
+        ),
+      ]}
             >
               <lion-checkbox
                 id="terms"
@@ -254,7 +254,7 @@ export class CustomerDetails extends LocalizeMixin(LitElement) {
               <lion-button
                 class="backbg-btn-color"
                 raised
-                @click=${this._toEmidetails}
+                @click=${() => this._toEmidetails()}
                 >${localize.msg('change-language:back')}
               </lion-button>
 
